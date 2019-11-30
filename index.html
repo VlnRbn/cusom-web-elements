@@ -18,12 +18,60 @@
       border: 2px solid #2b2b2b;
       background: white;
     }
-  </style> 
+
+    table {
+      width: 750px;
+      border-collapse: collapse;
+      margin: 50px auto;
+    }
+
+    /* Zebra striping */
+    tr:nth-of-type(odd) {
+      background: #fefefe;
+    }
+
+    th {
+      background: #2b2b2b;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
 
 </head>
 
 <body>
-  <button id="toggleBtn" onclick="toggleSidenav()"  >click here to toggle</button>
+  <button id="toggleBtn" onclick="toggleSidenav()">click here to toggle</button>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>Browser</th>
+        <th>Custom Element Support</th>
+      </tr>
+      <tr>
+        <td>Chrome</td>
+        <td>Supported natively.</td>
+      </tr>
+      <tr>
+        <td>Opera</td>
+        <td>Supported natively.</td>
+      </tr>
+      <tr>
+        <td>Safari</td>
+        <td>Supported natively.</td>
+      </tr>
+      <tr>
+        <td>Firefox</td>
+        <td>Supported natively as of version 63. In older versions: Set the <code>dom.webcomponents.enabled</code> and
+          <code>dom.webcomponents.customelements.enabled</code> preferences to true.</td>
+      </tr>
+      <tr>
+        <td>Edge</td>
+        <td>Working on an implementation. <br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <ci-broadband-plans></ci-broadband-plans>
   <!-- <script src="polyfills-es2015.js" ></script> -->
   <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -31,14 +79,14 @@
   <script src="main-es2015.js"></script>
 
   <script>
-     function toggleSidenav() {
+    function toggleSidenav() {
       console.log("click on button")
       var elmt = document.querySelector('ci-broadband-plans');
 
-      if( elmt.hasAttribute('open') ) {
-        console.log( elmt.getAttribute('open'), typeof elmt.getAttribute('open'))
+      if (elmt.hasAttribute('open')) {
+        console.log(elmt.getAttribute('open'), typeof elmt.getAttribute('open'))
         var isOpen = JSON.parse(elmt.getAttribute('open'));
-      } else if ( elmt.classList.contains('active') ) {
+      } else if (elmt.classList.contains('active')) {
         var isOpen = true
       } else {
         var isOpen = false
