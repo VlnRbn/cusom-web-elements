@@ -12,18 +12,24 @@
     * {
       font-family: 'Work Sans', serif;
     }
+
+    #toggleBtn {
+      padding: 8px 16px;
+      border: 2px solid #2b2b2b;
+    }
   </style> 
+
 </head>
 
 <body>
-  <button id="toggleBtn"  >click here to toggle</button>
+  <button id="toggleBtn" onclick="toggleSidenav()"  >click here to toggle</button>
   <ci-broadband-plans></ci-broadband-plans>
   <script src="./polyfill.js" ></script>
   <script src="./scripts.js" defer></script>
   <script src="./main.js"></script>
 
   <script>
-    document.getElementById('toggleBtn').addEventListener( 'click', () => {
+     function toggleSidenav() {
       console.log("click on button")
       var elmt = document.querySelector('ci-broadband-plans');
 
@@ -36,7 +42,7 @@
         var isOpen = false
       }
       elmt.setAttribute('open', !isOpen)
-    })
+    }
 
     document.querySelector('ci-broadband-plans').addEventListener(
       'selectedTab', function (evt) {
